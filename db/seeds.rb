@@ -21,3 +21,4 @@ restaurant3 = Restaurant.create!(name: "the Odeon", teaser: "Downtown food at it
   timeslots: 7)
 
 
+
