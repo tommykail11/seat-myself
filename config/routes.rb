@@ -1,6 +1,6 @@
 SeatMyself::Application.routes.draw do
 
-  root :to => 'restaurants#index'
+  root :to => 'welcome#index'
 
   resources :restaurants
 end
