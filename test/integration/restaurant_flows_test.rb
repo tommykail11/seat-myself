@@ -18,6 +18,11 @@ class RestaurantFlowsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Turks & Frogs")
     assert page.has_content?("the Odeon")
     assert page.has_content?("the Balthazaar")
+
+    click_link 'Barbounia'
+
+    assert_equal restaurant_path(restaurant1), current_path
+    assert find('h1:first').has_content? restaurant1.title
   end
 
   test "navigation" do
