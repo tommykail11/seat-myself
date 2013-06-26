@@ -26,6 +26,8 @@ class RestaurantFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test "navigation" do
+    restaurant1 = FactoryGirl.create(:restaurant, :name => "Turks & Frogs")
+
     visit "/"
     assert_equal root_path, current_path
     assert_equal "Home", find('.navbar ul li.active a').text
@@ -33,5 +35,9 @@ class RestaurantFlowsTest < ActionDispatch::IntegrationTest
     find('.navbar ul').click_link('Restaurants')
     assert_equal projects_path, current_path
     assert_equal "Restaurants", find('.navbar ul li.active a').text
+
+    click_link 'Turks & Frogs'
+    assert_equal "Restaurants", find('.navbar us li.active a').text
+
   end  
 end
