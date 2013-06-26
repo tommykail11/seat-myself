@@ -1,6 +1,9 @@
 SeatMyself::Application.routes.draw do
 
-  root :to => 'welcome#index'
+  get "users/new"
 
   resources :restaurants
+  resources :users, except: [:index]
+
+  root :to => 'welcome#index'
 end
