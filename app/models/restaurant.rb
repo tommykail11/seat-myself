@@ -1,6 +1,8 @@
 class Restaurant < ActiveRecord::Base
   attr_accessible :address, :menu, :name, :neighborhood, :price, :summary, :teaser, :timeslots
 
+  has_many :reservations
+
   validates :address, presence: true, length: {maximum: 75}
   validates :menu, presence: true
   validates :name, presence: true, length: {maximum: 50}

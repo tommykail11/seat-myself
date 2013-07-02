@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618211809) do
+ActiveRecord::Schema.define(:version => 20130702144223) do
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.integer  "points"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "reservations", ["restaurant_id"], :name => "index_reservations_on_restaurant_id"
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
